@@ -11,7 +11,7 @@ usage()
 	echo '        Note: When -mp is 1 during chassis patch, script expects a package.'
 	echo '-src  : (Optional) Source of the package/file/file-list to patch. Note: If -mp is set during testmodule patching, script expects a file with list of sources.'
 	echo '        Note: During chassis patching, script will expect a .tgz package.'
-	echo '-dest : (Optional) Destination of folder/folder-list to patch. Default is bin folder. Note: End destination with /, like, /mnt/spirent/ccpu/bin/'
+	echo '-dest : (Optional) Destination of folder/folder-list to patch. Default is bin folder. Note: End destination with /, like, /mnt/s/ccpu/bin/'
 	echo '        Note: If patching multiple files, make sure the source and destination match correspondingly'
 	echo '-s    : (Optional) Zero Indexed Slot to patch. Only applicable if -c is set to 0'	
 	echo
@@ -36,8 +36,8 @@ cleanup()
 
 error_occured()
 {
-	rm -rf /mnt/spirent/testmodule/slot$1/*
-	cp -r $HOME/tmp.slot/* /mnt/spirent/testmodule/slot$1/
+	rm -rf /mnt/s/testmodule/slot$1/*
+	cp -r $HOME/tmp.slot/* /mnt/s/testmodule/slot$1/
 	cleanup
 	echo
 	echo "Error occurred. Exiting now. Please try again!"
